@@ -90,4 +90,56 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+#register {
+  /*Background image for the register componenet */
+  background-size: cover;
+  background-position: center;
+  background-image: url('https://ak5.picdn.net/shutterstock/videos/18444895/thumb/11.jpg');
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+  /*registration form heading */
+.form-register h1 {
+  margin-bottom: 20px;
+}
+  /*registration form itself */
+.form-register{
+    margin: 0 auto;
+  max-width: 400px;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0,0,0, 0.1);
+  background-color: rgba(255, 255, 255, 0.8);
+}
+  /*registration form submit button */
+.form-register .btn {
+  display: block;
+  width: 100%;
+  font-size: 16px;
+  margin-top: 20px;
+    padding: 10px;
+}
+  /*text input fields */
+.form-register input[type="text"],
+.form-register input[type="password"] {
+    width: 95%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+  /*registration form error alert messages */
+.form-register .alert {
+  margin-bottom: 10px;
+}
+  /*router link */
+.form-register a.router-link {
+  display: block;
+  text-decoration: none;
+  color: #777;
+    margin-top: 10px
+}
+;</style>
