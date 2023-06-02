@@ -32,6 +32,22 @@
         v-model="user.confirmPassword"
         required
       />
+      <!-- to add new customer checkbox option -->
+      <div class="form"> 
+        <label for="newCustomer">New Customer</label>
+        <input type="checkbox" v-model="newCustomer" @change="toggleCheckbox('client')">
+      </div>
+      <div class="form"> 
+        <label for="newEmployee">New Employee</label>
+        <input type="checkbox" v-model="newEmployee" @change="toggleCheckbox('employee')">
+      </div>
+          <div class="form"> 
+        <label for="newAdmin">New Admin</label>
+        <input type="checkbox" v-model="newAdmin" @change="toggleCheckbox('admin')">
+      </div>
+      <form action="customerForm" v-if="newCustomer"></form>
+       <form action="employeeForm" v-if="newEmployee"></form>
+        <form action="adminForm" v-if="newCustomer"></form>
       <router-link :to="{ name: 'login' }">Have an account?</router-link>
       <button class="btn btn-lg btn-primary btn-block" type="submit">
         Create Account
