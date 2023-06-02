@@ -33,6 +33,99 @@
         required
       />
       <router-link :to="{ name: 'login' }">Have an account?</router-link>
+    
+      <!-- gives option for customer to enter info to register -->
+      <div class="form"> 
+        <label for="fistName">First Name</label>
+        <input type="text" v-model="newCustomer.firstName">
+      </div>
+        <div class="form"> 
+        <label for="lastName">Last Name</label>
+        <input type="text" v-model="newCustomer.firstName">
+      </div>
+        <div class="form"> 
+        <label for="phoneNumber">Phone Number</label>
+        <input type="text" v-model="newCustomer.phoneNumber">
+      </div>
+        <div class="form"> 
+        <label for="emailAddress">Email Address</label>
+        <input type="text" v-model="newCustomer.emailAddress">
+      </div>
+        <div class="form"> 
+        <label for="address">Address</label>
+        <input type="text" v-model="newCustomer.address">
+      </div>
+        <div class="form"> 
+        <label for="city">City</label>
+        <input type="text" v-model="newCustomer.city">
+      </div>
+        <div class="form"> 
+        <label for="state">State</label>
+        <input type="text" v-model="newCustomer.state">
+      </div>
+        <div class="form"> 
+        <label for="zipCode">Zip Code</label>
+        <input type="text" v-model="newCustomer.zipCode">
+      </div>
+      <!-- gives option for employee to enter info to register -->
+      <div class="form"> 
+        <label for="fistName">First Name</label>
+        <input type="text" v-model="newEmployee.firstName">
+      </div>
+        <div class="form"> 
+        <label for="lastName">Last Name</label>
+        <input type="text" v-model="newEmployee.firstName">
+      </div>
+        <div class="form"> 
+        <label for="phoneNumber">Phone Number</label>
+        <input type="text" v-model="newEmployee.phoneNumber">
+      </div>
+        <div class="form"> 
+        <label for="emailAddress">Email Address</label>
+        <input type="text" v-model="newEmployee.emailAddress">
+      </div>
+        <div class="form"> 
+        <label for="address">Address</label>
+        <input type="text" v-model="newEmployee.address">
+      </div>
+        <div class="form"> 
+        <label for="city">City</label>
+        <input type="text" v-model="newEmployee.city">
+      </div>
+        <div class="form"> 
+        <label for="state">State</label>
+        <input type="text" v-model="newEmployee.state">
+      </div>
+        <div class="form"> 
+        <label for="zipCode">Zip Code</label>
+        <input type="text" v-model="newEmployee.zipCode">
+      </div>
+        <!-- gives option for ADMIN to enter info to register -->
+          <div class="form"> 
+        <label for="fistName">First Name</label>
+        <input type="text" v-model="newAdmin.firstName">
+      </div>
+        <div class="form"> 
+        <label for="lastName">Last Name</label>
+        <input type="text" v-model="newAdmin.firstName">
+      </div>
+       <!-- to add new customer checkbox option -->
+      <div class="form"> 
+        <label for="viewCustomer">New Customer</label>
+        <input type="checkbox" v-model="viewCustomer" @change="toggleCheckbox('customer')">
+      </div>
+      <div class="form"> 
+        <label for="viewEmployee">New Employee</label>
+        <input type="checkbox" v-model="viewEmployee" @change="toggleCheckbox('employee')">
+      </div>
+          <div class="form"> 
+        <label for="viewAdmin">New Admin</label>
+        <input type="checkbox" v-model="viewAdmin" @change="toggleCheckbox('admin')">
+      </div>
+      <form class="customerForm" v-if="viewCustomer"></form>
+       <form class="employeeForm" v-if="viewEmployee"></form>
+        <form class="adminForm" v-if="viewAdmin"></form>
+
       <button class="btn btn-lg btn-primary btn-block" type="submit">
         Create Account
       </button>
@@ -41,12 +134,29 @@
 </template>
 
 <script>
-import authService from '../services/AuthService';
+
+// import CustomerService from '../services/CustomerService'
+// import EmployeeService from '../services/EmployeeService'
+// import AdminService from '../services/AdminService'
+import AuthService from '../services/AuthService';
 
 export default {
   name: 'register',
   data() {
     return {
+      // only allows one of these to be true to appear
+      viewCustomer: false, 
+      viewEmployee: false,
+      viewAdmin: false,
+      newEmployee:{
+        
+      },
+      newAdmin:{
+
+      },
+      newCustomer:{
+
+      },
       user: {
         username: '',
         password: '',
@@ -58,12 +168,25 @@ export default {
     };
   },
   methods: {
+    toggleCheckbox(role){
+      if(role === 'employee') {
+        this.newCustomer = false;
+      } if (role === 'customer') {
+        this.newEmployee = false;
+      } else if (role === 'admin') {
+        this.newCustomer = false;
+
+      }
+      AuthService.register(this.newCustomer),
+      AuthService.register(this.newEmployee),
+      AuthService.register(this.newAdmin)
+    },
     register() {
       if (this.user.password != this.user.confirmPassword) {
         this.registrationErrors = true;
         this.registrationErrorMsg = 'Password & Confirm Password do not match.';
       } else {
-        authService
+        AuthService
           .register(this.user)
           .then((response) => {
             if (response.status == 201) {
