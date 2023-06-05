@@ -74,3 +74,72 @@ export default {
   }
 };
 </script>
+<style>
+#login {
+  /* Backgroung image for the sign in componenet  */
+  background-size: cover;
+  background-position: top;
+   background-image: url('https://ak5.picdn.net/shutterstock/videos/18444895/thumb/11.jpg');
+   height: 100vh;
+   display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+/* login form heading */
+.form-signin h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+/* login form itself */
+.form-signin{
+  margin: 0 auto;
+  max-width: 400px;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.8);
+}
+/* login form submit button */
+.form-signin .btn  {
+  display: block;
+  width: 100%;
+  font-size: 16px;
+  margin-top: 20px;
+  padding: 10px;
+  cursor: pointer;
+}
+/* text input fields */
+.form-signin input[type="text"],
+.form-signin input[type="password"]{
+  width: 95%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+/* sumbit button */
+.form-signin input[type="submit"]:hover{
+  background-color: royalblue;
+}
+/* error login form message */
+.form-signin.error {
+  color: red;
+  margin-bottom: 10px;
+  text-align: center;
+}
+/* router link */
+.form-signin router-link {
+  display: block;
+  text-decoration: none;
+  color: blueviolet;
+  margin-top: 10px;
+}
+/* success login message */
+.form-signin .success-message {
+  color: green;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+</style>
