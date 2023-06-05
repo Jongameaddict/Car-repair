@@ -18,9 +18,6 @@
     </div>
 
     <div class="form-login">
-    
-      
-
       <form class="form-signin" @submit.prevent="login">
         <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
         <div class="alert alert-danger" role="alert" v-if="invalidCredentials">
@@ -52,7 +49,7 @@
           v-model="user.password"
           required
         />
-        <router-link :to="{ name: 'login' }">Need an account?</router-link>
+        <router-link :to="{ name: 'register' }">Need an account?</router-link>
         <router-link to="/">
         </router-link>
 
@@ -91,6 +88,7 @@ export default {
         password: "",
       },
       invalidCredentials: false,
+      isMenuOpen: false,
     };
   },
   methods: {
