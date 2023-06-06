@@ -41,7 +41,7 @@
       <div>
         <div class="form-group">
           <label for="description">Description of Problem(s):</label>
-          <input type="password" id="description" v-model="car.description" />
+          <input type="text" id="description" v-model="car.description" />
         </div>
       </div>
       <button class="btn" @click="register">Submit</button>
