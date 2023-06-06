@@ -1,4 +1,16 @@
 <template>
+<<<<<<< HEAD
+  <div>
+    <!-- display repair requests and allow marked as completed -->
+    <h2>Repair Requests</h2>
+    <ul>
+      <li v-for="request in requests" :key="request.id">
+        <div>{{ request.title }}</div>
+        <div>Status: {{ request.status}}</div>
+        <button v-if="request.status !== 'completed'" @click="markCompleted(request.id)">Mark Completed</button>
+      </li>
+    </ul>
+=======
   <div id="register">
     <div class="header">
       <router-link to="/">
@@ -58,10 +70,24 @@
     <footer class="footer">
       <p class="footer-text">All Rights Reserved @ Tech Elevator 2023</p>
     </footer>
+>>>>>>> main
   </div>
 </template>
 
 <script>
+<<<<<<< HEAD
+import { mapState, mapMutations } from 'vuex';
+export default {
+  computed: {
+    ...mapState(['requests']),
+  },
+  methods: {
+    ...mapMutations(['markRequestCompleted']),
+    markCompleted(requestId) {
+      this.markRequestCompleted(requestId);
+    }
+  }
+=======
 import authService from "../services/AuthService";
 import router from "../router";
 export default {
@@ -96,6 +122,7 @@ export default {
       this.isMenuOpen = !this.isMenuOpen;
     },
   },
+>>>>>>> main
 };
 </script>
 
