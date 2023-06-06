@@ -1,7 +1,10 @@
 package com.techelevator.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class Car {
 
+    @JsonIgnore
     private int carId;
     private String make;
     private String model;

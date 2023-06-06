@@ -3,20 +3,24 @@ package com.techelevator.dao;
 import com.techelevator.model.Car;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 
+import javax.sql.DataSource;
+import javax.xml.crypto.Data;
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class JdbcCarDao implements CarDao{
 
     private JdbcTemplate jdbcTemplate;
-    public JdbcCarDao(JdbcTemplate jdbcTemplate){
+    public JdbcCarDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
     @Override
     public void createCar(Car car) {
-        String sql = "INSERT INTO car (make, model, year, color, description) VALUES (?,?,?,?,?)";
+        String sql = "INSERT INTO cars (make, model, year, color, description) VALUES (?,?,?,?,?);";
         jdbcTemplate.update(sql, car.getMake(), car.getModel(), car.getYear(), car.getColor(), car.getDescription());
     }
 

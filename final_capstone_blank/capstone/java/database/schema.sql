@@ -47,11 +47,7 @@ CREATE TABLE repair_service(
 CREATE TABLE services(
 	service_id SERIAL,
 	car_id int NOT NULL,
-	customer_id int NOT NULL,
-	employee_id int NOT NULL,
-	repair_status varchar(50) NOT NULL,
-	payment_status varchar(50) NOT NULL,
-	pickuptime timestamp,
+	user_id int NOT NULL,
 	
 	PRIMARY KEY(service_id)
 );
@@ -60,7 +56,7 @@ CREATE TABLE person(
 	user_id int NOT NULL,
 	firstname varchar(200) NOT NULL,
 	lastname varchar(200) NOT NULL,
-	username varchar(200 NOT NULL
+	username varchar(200) NOT NULL,
 	email varchar(200) NOT NULL,
 	phone int NOT NULL,
 	
@@ -78,10 +74,7 @@ ALTER TABLE services
 ADD FOREIGN KEY (car_id) REFERENCES cars(car_id);
 
 ALTER TABLE services
-ADD FOREIGN KEY (customer_id) REFERENCES users(user_id);
-
-ALTER TABLE services
-ADD FOREIGN KEY (employee_id) REFERENCES users(user_id);
+ADD FOREIGN KEY (user_id) REFERENCES users(user_id);
 
 ALTER TABLE person
 ADD FOREIGN KEY (user_id) REFERENCES users(user_id);
@@ -97,7 +90,6 @@ INSERT INTO repair_types(repair_type, price) VALUES
 	('Fuel Injector Cleaning', 100),
 	('Timing Belt Replacement', 500),
 	('Transmission Fluid Flush', 200);
-
 
 
 COMMIT TRANSACTION;
