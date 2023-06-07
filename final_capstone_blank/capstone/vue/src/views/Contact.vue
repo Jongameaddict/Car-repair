@@ -50,7 +50,7 @@ export default {
   components: {},
   data() {
     return {
-      isLoggedIn: false,
+      isLoggedIn: true,
       isMenuOpen: false,
       isLoginPage: false,
       form: {
