@@ -44,7 +44,7 @@
           <input type="text" id="description" v-model="car.description" />
         </div>
       </div>
-      <button class="btn" @click="register">Submit</button>
+      <button class="btn" @click="sendPostRequest">Submit</button>
       <div v-if="registrationErrors" class="alert">
         {{ registrationErrorMsg }}
       </div>
