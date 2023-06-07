@@ -83,7 +83,7 @@ const router = new Router({
     },
     {
       path: '/request-confirmation', 
-      name: 'requestconfirmation',
+      name: 'request-confirmation',
       component: RequestConfirmation,
       meta: {
         requiresAuth: true
