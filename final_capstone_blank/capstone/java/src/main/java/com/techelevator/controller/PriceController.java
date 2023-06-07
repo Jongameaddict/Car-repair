@@ -32,5 +32,4 @@ public class PriceController {
 		Price price = dao.getPrice(id);
 		return price;
 	}
-	
 }
