@@ -30,5 +30,10 @@ public class CarController {
         return carDao.getAllCars();
     }
 
+    @RequestMapping(path = "/requests/{id}", method = RequestMethod.GET)
+    public Car getCar(@PathVariable int carId){
+        Car car = carDao.getCarById(carId);
+        return car;
+    }
     //path for getting cars by ids
 }
