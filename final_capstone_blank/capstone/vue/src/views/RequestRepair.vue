@@ -10,8 +10,8 @@
       </router-link>
       <div class="menu" :class="{ open: isMenuOpen }">
         <router-link to="/">Home</router-link>
-        <a href="#">Create a Request</a>
-        <a href="#">Request Status</a>
+        <a href="#">Request Repair</a>
+        <a href="#">Service Status</a>
         <a href="#">About</a>
         <a href="#">Contact</a>
       </div>
@@ -48,7 +48,6 @@
       <div v-if="registrationErrors" class="alert">
         {{ registrationErrorMsg }}
       </div>
-      
     </div>
     <button class="hamburger" @click="toggleMenu">
       <span class="line"></span>
@@ -60,7 +59,6 @@
     </footer>
   </div>
 </template>
-
 <script>
 import authService from "../services/AuthService";
 import router from "../router";
@@ -98,7 +96,6 @@ export default {
   },
 };
 </script>
-
 <style>
 #register {
   position: fixed;
@@ -163,20 +160,20 @@ export default {
   font-size: 16px;
   margin-top: 20px;
   padding: 10px;
-  background-color: #4caf50;
+  background-color: #4CAF50;
   color: #fff;
   border: none;
   border-radius: 3px;
   cursor: pointer;
 }
 .form-register .btn:hover {
-  background-color: #45a049;
+  background-color: #45A049;
 }
 .form-register .alert {
   margin-bottom: 10px;
   padding: 10px;
   border-radius: 3px;
-  background-color: #f44336;
+  background-color: #F44336;
   color: #fff;
 }
 .footer {
