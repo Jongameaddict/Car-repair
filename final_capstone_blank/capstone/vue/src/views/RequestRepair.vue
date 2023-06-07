@@ -95,8 +95,10 @@ export default {
       this.isMenuOpen = !this.isMenuOpen;
     },
     sendPostRequest(){
-      
-      axios.post('/requestrepair', this.car)
+      axios.post('/requestrepair', this.car);
+      .then((response)=>{
+        
+      })
     }
   },
 };
