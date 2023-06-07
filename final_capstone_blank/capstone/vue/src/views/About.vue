@@ -40,6 +40,7 @@ export default {
   data() {
     return {
       isMenuOpen: false,
+      isLoggedIn: true
     };
   },
   methods: {
