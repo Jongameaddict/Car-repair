@@ -13,21 +13,24 @@ import java.util.List;
 public class JdbcPriceDao implements PriceDao {
 	private JdbcTemplate template;
 	
-	public JdbcPriceDao(DataSource dataSource) {
-		template = new JdbcTemplate(dataSource);
+	public JdbcPriceDao(JdbcTemplate jdbcTemplate) {
+		this.template = jdbcTemplate;
 	}
 	
 	@Override
 	public List<Price> getPrices() {
-		String sqlGetAllPrices = "SELECT * FROM prices";
+		String sqlGetAllPrices = "SELECT * FROM repair_types";
 		List<Price> priceList = new ArrayList<Price>();
 		SqlRowSet rowSet = template.queryForRowSet(sqlGetAllPrices);
 		
 		while (rowSet.next()) {
-			int id = rowSet.getInt("id");
-			String service = rowSet.getString("service");
-			Price price = new Price(id, service);
-			priceList.add(price);
+			Price newPrice = new Price();
+			
+			newPrice.setRepairId(rowSet.getInt("repair_id"));
+			newPrice.setRepairType(rowSet.getString("repair_type"));
+			newPrice.setPrice(rowSet.getInt("price"));
+			
+			priceList.add(newPrice);
 		}
 		return priceList;
 	}
@@ -35,15 +38,14 @@ public class JdbcPriceDao implements PriceDao {
 	@Override
 	public Price getPrice(int id) {
 		// TODO Auto-generated method stub
-		String getPriceSQL = "SELECT * FROM price where id = ?";
+		String getPriceSQL = "SELECT * FROM repair_types where id = ?";
 		SqlRowSet result = template.queryForRowSet(getPriceSQL, id);
 		Price price = null;
 		
 		if (result.next()) {
-			int id2 = result.getInt("id");
-			String service = result.getString("service");
-
-			price = new Price(id2, service);
+			price.setRepairId(result.getInt("repair_id"));
+			price.setRepairType(result.getString("repair_type"));
+			price.setPrice(result.getInt("price"));
 		}
 		return price;
 	}
