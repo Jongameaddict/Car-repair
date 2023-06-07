@@ -10,7 +10,7 @@
         <span class="line"></span>
       </button>
     <div class="menu" :class="{ open: isMenuOpen }">
-      <router-link to="/requestrepair">Request Repair</router-link>
+      <router-link to="/request-repair">Request Repair</router-link>
       <router-link to="/service-status">Service Status</router-link>
       <router-link to="/about">About</router-link>
       <router-link to="/contact">Contact</router-link>

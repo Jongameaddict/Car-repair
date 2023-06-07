@@ -58,8 +58,8 @@ const router = new Router({
       }
     },
     {
-      path: "/requestrepair",
-      name: "requestrepair",
+      path: "/request-repair",
+      name: "request-repair",
       component: RequestRepair,
       meta: {
         requiresAuth: true
