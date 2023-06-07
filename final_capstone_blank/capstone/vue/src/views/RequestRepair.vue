@@ -9,11 +9,11 @@
         />
       </router-link>
       <div class="menu" :class="{ open: isMenuOpen }">
-        <router-link to="/">Home</router-link>
-        <a href="#">Request Repair</a>
-        <a href="#">Service Status</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
+        <router-link v-if="!isLoginPage" to="/">Home</router-link>
+        <router-link to="/request-status">Service Status</router-link>
+        <router-link to="/about">About</router-link>
+        <router-link to="/contact">Contact</router-link>
+        <a v-if="isLoggedIn" href="/logout">Logout</a>
       </div>
     </div>
     <div class="form-register">
@@ -62,7 +62,7 @@
 <script>
 import authService from "../services/AuthService";
 import router from "../router";
-import axios from 'axios';
+import axios from "axios";
 export default {
   name: "RequestRepair",
   data() {
@@ -94,9 +94,14 @@ export default {
     toggleMenu() {
       this.isMenuOpen = !this.isMenuOpen;
     },
-    sendPostRequest(){
-      axios.post('/requestrepair', this.car);
-    }
+    sendPostRequest() {
+      axios.post("/requestrepair", this.car)
+      .then((response)=>{
+        if(response.status == 200) {
+          this.$router.push('/request-confirmation');
+        }
+      });
+    },
   },
 };
 </script>
@@ -164,20 +169,20 @@ export default {
   font-size: 16px;
   margin-top: 20px;
   padding: 10px;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: #fff;
   border: none;
   border-radius: 3px;
   cursor: pointer;
 }
 .form-register .btn:hover {
-  background-color: #45A049;
+  background-color: #45a049;
 }
 .form-register .alert {
   margin-bottom: 10px;
   padding: 10px;
   border-radius: 3px;
-  background-color: #F44336;
+  background-color: #f44336;
   color: #fff;
 }
 .footer {
