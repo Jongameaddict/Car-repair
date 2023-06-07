@@ -10,8 +10,8 @@
         <span class="line"></span>
       </button>
     <div class="menu" :class="{ open: isMenuOpen }">
-      <router-link to="/request-service">Request Repair</router-link>
-      <router-link to="/request-status">Service Status</router-link>
+      <router-link to="/requestrepair">Request Repair</router-link>
+      <router-link to="/service-status">Service Status</router-link>
       <router-link to="/about">About</router-link>
       <router-link to="/contact">Contact</router-link>
       <a v-if="isLoggedIn" href="/logout">Logout</a>
@@ -21,7 +21,7 @@
     <div class="content">
       <h1>Welcome to Jeremy's Car Repair</h1>
       <p>We provide quality car repair services for all makes and models.</p>
-      <button class="cta-button" @click="$router.push('/request-service')">Book Appointment</button>
+<button class="cta-button" @click="$router.push('/requestrepair')">Book Appointment</button>
     </div>
 
     <footer class="footer">
