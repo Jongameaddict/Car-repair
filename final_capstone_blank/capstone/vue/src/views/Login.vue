@@ -50,7 +50,7 @@
         <router-link :to="{ name: 'register' }">Need an account?</router-link>
 
     <div class="menu" :class="{ open: isMenuOpen }">
-      <router-link to="/request-service">Request Repair</router-link>
+<router-link to="/requestrepair">Request Repair</router-link>
       <router-link to="/request-status">Service Status</router-link>
       <router-link to="/about">About</router-link>
       <router-link to="/contact">Contact</router-link>
