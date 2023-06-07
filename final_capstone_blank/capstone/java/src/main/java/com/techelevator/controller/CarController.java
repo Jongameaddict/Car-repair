@@ -30,5 +30,5 @@ public class CarController {
         return carDao.getAllCars();
     }
 
-    @RequestMapping (path)
+    //path for getting cars by ids
 }

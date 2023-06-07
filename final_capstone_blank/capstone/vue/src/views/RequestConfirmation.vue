@@ -12,11 +12,9 @@
     </div>
 
     <div class="content">
-      <h1>About Us</h1>
+      <h1>Your Repair Request has been submitted!</h1>
       <div class="paragraphs">
-        <p>Welcome to Jeremy's Car Repair, your trusted automotive service provider. Established in 2023, we are proud to offer our expertise and exceptional services to car owners in need.</p>
-        <p>At Jeremy's Car Repair, we specialize in catering to the needs of both conventional and electric vehicles. Our skilled technicians are well-versed in the latest automotive technologies, ensuring top-notch repairs and maintenance for all types of vehicles. With a focus on quality workmanship, we strive to exceed customer expectations and deliver reliable solutions.</p>
-        <p>Trust Jeremy's Car Repair to keep your vehicle running smoothly and to provide the care it deserves.</p>
+        <p>Please wait for your request to be reviewed by an employee.</p>
       </div>
     </div>
     <div class="menu" :class="{ open: isMenuOpen }">
