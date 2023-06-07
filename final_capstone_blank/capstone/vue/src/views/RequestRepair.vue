@@ -169,20 +169,20 @@ export default {
   font-size: 16px;
   margin-top: 20px;
   padding: 10px;
-  background-color: #4caf50;
+  background-color: #4CAF50;
   color: #fff;
   border: none;
   border-radius: 3px;
   cursor: pointer;
 }
 .form-register .btn:hover {
-  background-color: #45a049;
+  background-color: #45A049;
 }
 .form-register .alert {
   margin-bottom: 10px;
   padding: 10px;
   border-radius: 3px;
-  background-color: #f44336;
+  background-color: #F44336;
   color: #fff;
 }
 .footer {
