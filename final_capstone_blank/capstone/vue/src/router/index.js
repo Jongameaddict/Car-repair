@@ -9,6 +9,7 @@ import Contact from '../views/Contact.vue'
 import About from '../views/About.vue'
 import store from '../store/index'
 import RequestConfirmation from '../views/RequestConfirmation.vue'
+import ServiceStatus from '../views/ServiceStatus.vue'
 
 Vue.use(Router)
 
@@ -85,6 +86,14 @@ const router = new Router({
       path: '/request-confirmation', 
       name: 'request-confirmation',
       component: RequestConfirmation,
+      meta: {
+        requiresAuth: true
+      }
+    },
+  {
+     path: '/service-status', 
+      name: 'service-status',
+      component: ServiceStatus,
       meta: {
         requiresAuth: true
       }
