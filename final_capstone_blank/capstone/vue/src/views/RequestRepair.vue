@@ -96,9 +96,6 @@ export default {
     },
     sendPostRequest(){
       axios.post('/requestrepair', this.car);
-      .then((response)=>{
-        
-      })
     }
   },
 };
