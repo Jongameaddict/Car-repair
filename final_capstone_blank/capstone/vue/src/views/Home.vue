@@ -9,14 +9,14 @@
         <span class="line"></span>
         <span class="line"></span>
       </button>
-      <div class="menu" :class="{ open: isMenuOpen }">
-        <router-link to="/">Home</router-link>
-        <a href="#">Request Repair</a>
-        <a href="#">Service Status</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-        <a v-if="isLoggedIn" href="#">Logout</a>
-      </div>
+    <div class="menu" :class="{ open: isMenuOpen }">
+      <router-link v-if="!isLoginPage" to="/">Home</router-link>
+      <router-link to="/request-service">Request Repair</router-link>
+      <router-link to="/request-status">Service Status</router-link>
+      <router-link to="/about">About</router-link>
+      <router-link to="/contact">Contact</router-link>
+      <a v-if="isLoggedIn" href="/logout">Logout</a>
+    </div>
     </div>
 
     <div class="content">
