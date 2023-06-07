@@ -11,17 +11,37 @@ public class Car {
     private int year;
     private String color;
     private String description;
+    private String repairStatus;
+    private String paymentStatus;
 
-    public Car(int carId, String make, String model, int year, String color, String description) {
+    public Car(int carId, String make, String model, int year, String color, String description, String repairStatus, String paymentStatus) {
         this.carId = carId;
         this.make = make;
         this.model = model;
         this.year = year;
         this.color = color;
         this.description = description;
+        this.repairStatus = repairStatus;
+        this.paymentStatus = paymentStatus;
     }
 
     public Car(){}
+
+    public String getRepairStatus() {
+        return repairStatus;
+    }
+
+    public void setRepairStatus(String repairStatus) {
+        this.repairStatus = repairStatus;
+    }
+
+    public String getPaymentStatus() {
+        return paymentStatus;
+    }
+
+    public void setPaymentStatus(String paymentStatus) {
+        this.paymentStatus = paymentStatus;
+    }
 
     public int getCarId() {
         return carId;

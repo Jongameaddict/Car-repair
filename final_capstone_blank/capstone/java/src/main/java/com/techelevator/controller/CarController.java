@@ -35,5 +35,14 @@ public class CarController {
         Car car = carDao.getCarById(carId);
         return car;
     }
-    //path for getting cars by ids
+
+    @RequestMapping(path = "update-repair/{id}", method = RequestMethod.PUT)
+    public void updateRepair(@RequestBody Car car, @PathVariable int carId){
+        carDao.updateRepairStatus(car, carId);
+    }
+
+    @RequestMapping(path = "update-repair/{id}", method = RequestMethod.PUT)
+    public void updatePayment(@RequestBody Car car, @PathVariable int carId){
+        carDao.updatePaymentStatus(car, carId);
+    }
 }
