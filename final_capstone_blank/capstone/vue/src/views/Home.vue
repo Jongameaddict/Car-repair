@@ -30,8 +30,9 @@
     </footer>
   </div>
 </template>
-
+<!--calling RequestRepair to display request and provide option to choose complete -->
 <script>
+import RequestRepair from './RequestRepair.vue';
 export default {
   name: "home",
   data() {

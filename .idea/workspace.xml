@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-
   <component name="ChangeListManager">
     <list default="true" id="0783a4b6-a15c-4e92-9df0-0ffec8e5d279" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,7 +18,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/final_capstone_blank/capstone/java" />
     <property name="settings.editor.selected.configurable" value="preferences.updates" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

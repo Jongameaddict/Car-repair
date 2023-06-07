@@ -18,10 +18,18 @@ if(currentToken != null) {
 
 export default new Vuex.Store({
   state: {
+    requests: [],
     token: currentToken || '',
     user: currentUser || {}
   },
   mutations: {
+    // created request array to store repair request to update completed status
+    markRequestCompleted(state, requestId) {
+      const request = state.requests.find((req) => req.id === requestId);
+      if (request) {
+        request.status = 'completed';
+      }
+    },
     SET_AUTH_TOKEN(state, token) {
       state.token = token;
       localStorage.setItem('token', token);

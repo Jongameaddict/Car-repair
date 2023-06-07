@@ -2,7 +2,11 @@
   <div id="register">
     <div class="header">
       <router-link to="/">
-        <img class="logo" src="../components/Jeremy's Car Repair.png" alt="Logo" />
+        <img
+          class="logo"
+          src="../components/Jeremy's Car Repair.png"
+          alt="Logo"
+        />
       </router-link>
       <button class="hamburger" :class="{ open: isMenuOpen }" @click="toggleMenu">
         <span class="line"></span>
@@ -48,7 +52,11 @@
         </div>
         <div class="form-group">
           <label for="confirmPassword">Confirm Password:</label>
-          <input type="password" id="confirmPassword" v-model="user.confirmPassword" />
+          <input
+            type="password"
+            id="confirmPassword"
+            v-model="user.confirmPassword"
+          />
         </div>
       </div>
       <div class="row">
@@ -69,7 +77,9 @@
       <div v-if="registrationErrors" class="alert">
         {{ registrationErrorMsg }}
       </div>
-      <a class="router-link" href="/login">Already have an account? Login here.</a>
+      <a class="router-link" href="/login"
+        >Already have an account? Login here.</a
+      >
     </div>
     <footer class="footer">
       <p class="footer-text">2023 Jeremy's Car Repair. All rights reserved.</p>
@@ -77,42 +87,43 @@
   </div>
 </template>
 <script>
-import authService from '../services/AuthService';
-import router from '../router';
+import authService from "../services/AuthService";
+import router from "../router";
 export default {
-  name: 'register',
+  name: "register",
   data() {
     return {
       user: {
-        firstName: '',
-        lastName: '',
-        username: '',
-        email: '',
-        password: '',
-        confirmPassword: '',
-        phoneNumber: '',
-        role: 'customer'
+        firstName: "",
+        lastName: "",
+        username: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+        phoneNumber: "",
+        role: "customer",
       },
       registrationErrors: false,
-      registrationErrorMsg: '',
-      isMenuOpen: false
+      registrationErrorMsg: "",
+      isMenuOpen: false,
     };
   },
   methods: {
     register() {
-      authService.register(this.user)
+      authService
+        .register(this.user)
         .then(() => {
-          router.push('/login');
+          router.push("/login");
         })
-        .catch(error => {
+        .catch((error) => {
           this.registrationErrors = true;
           this.registrationErrorMsg = error.response.data.message;
         });
     },
     toggleMenu() {
       this.isMenuOpen = !this.isMenuOpen;
-    }
-  }
+    },
+  },
 };
 </script>
 <style>
@@ -124,7 +135,7 @@ export default {
   bottom: 0;
   background-size: cover;
   background-position: center;
-  background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e2111426-4597-4519-b144-4851724f4403/d2uxtyn-23974429-2335-454b-a0e9-250fafb69057.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwic3ViIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsImF1ZCI6WyJ1cm46c2VydmljZTpmaWxlLmRvd25sb2FkIl0sIm9iaiI6W1t7InBhdGgiOiIvZi9lMjExMTQyNi00NTk3LTQ1MTktYjE0NC00ODUxNzI0ZjQ0MDMvZDJ1eHR5bi0yMzk3NDQyOS0yMzM1LTQ1NGItYTBlOS0yNTBmYWZiNjkwNTcuanBnIn1dXX0.XCfnELCE9DOlszOrK8KzbJw9D1nndzp_NiLu2jcSCq8');
+  background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e2111426-4597-4519-b144-4851724f4403/d2uxtyn-23974429-2335-454b-a0e9-250fafb69057.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwic3ViIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsImF1ZCI6WyJ1cm46c2VydmljZTpmaWxlLmRvd25sb2FkIl0sIm9iaiI6W1t7InBhdGgiOiIvZi9lMjExMTQyNi00NTk3LTQ1MTktYjE0NC00ODUxNzI0ZjQ0MDMvZDJ1eHR5bi0yMzk3NDQyOS0yMzM1LTQ1NGItYTBlOS0yNTBmYWZiNjkwNTcuanBnIn1dXX0.XCfnELCE9DOlszOrK8KzbJw9D1nndzp_NiLu2jcSCq8");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center top;
@@ -179,20 +190,20 @@ export default {
   font-size: 16px;
   margin-top: 20px;
   padding: 10px;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: #fff;
   border: none;
   border-radius: 3px;
   cursor: pointer;
 }
 .form-register .btn:hover {
-  background-color: #45A049;
+  background-color: #45a049;
 }
 .form-register .alert {
   margin-bottom: 10px;
   padding: 10px;
   border-radius: 3px;
-  background-color: #F44336;
+  background-color: #f44336;
   color: #fff;
 }
 .footer {
