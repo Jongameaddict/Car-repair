@@ -8,14 +8,21 @@
           alt="Logo"
         />
       </router-link>
-      <div class="menu" :class="{ open: isMenuOpen }">
-        <router-link to="/">Home</router-link>
-        <a href="#">Create a Request</a>
-        <a href="#">Request Status</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-      </div>
+      <button class="hamburger" :class="{ open: isMenuOpen }" @click="toggleMenu">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </button>
+    <div class="menu" :class="{ open: isMenuOpen }">
+      <router-link v-if="!isLoginPage" to="/">Home</router-link>
+      <router-link to="/request-service">Create a Request</router-link>
+      <router-link to="/request-status">Service Status</router-link>
+      <router-link to="/about">About</router-link>
+      <router-link to="/contact">Contact</router-link>
+      <a v-if="isLoggedIn" href="/logout">Logout</a>
     </div>
+</div>
+
     <div class="form-register">
       <h1>Register</h1>
       <div class="row">
@@ -74,13 +81,8 @@
         >Already have an account? Login here.</a
       >
     </div>
-    <button class="hamburger" @click="toggleMenu">
-      <span class="line"></span>
-      <span class="line"></span>
-      <span class="line"></span>
-    </button>
     <footer class="footer">
-      <p class="footer-text">All Rights Reserved @ Tech Elevator 2023</p>
+      <p class="footer-text">2023 Jeremy's Car Repair. All rights reserved.</p>
     </footer>
   </div>
 </template>
@@ -143,7 +145,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px;
+  padding: 10px;
   position: fixed;
   top: 0;
   left: 0;
@@ -154,7 +156,7 @@ export default {
 .form-register {
   max-width: 500px;
   width: 80%;
-  margin: 80px auto;
+  margin: 25px auto;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -205,7 +207,7 @@ export default {
   color: #fff;
 }
 .footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
@@ -213,9 +215,15 @@ export default {
   background-color: rgba(255, 255, 255, 0.8);
   text-align: center;
 }
+
+.footer-text {
+  font-size: 14px;
+  color: black;
+  margin: 0;
+}
 .hamburger {
   position: fixed;
-  top: 30px;
+  top: 35px;
   right: 20px;
   display: flex;
   flex-direction: column;
@@ -243,30 +251,39 @@ export default {
 .hamburger.open .line:nth-child(3) {
   transform: translateY(-8px) rotate(-45deg);
 }
-.menu {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #fff;
-  width: 200px;
-  transform: translateX(200px);
-  transition: transform 0.3s ease;
-  z-index: 9998;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 130px;
-}
-.menu.open {
-  transform: translateX(0);
-}
-.menu a {
-  margin-bottom: 20px;
-  color: #000;
-  text-decoration: none;
-  font-size: 16px;
-}
+  .menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+    width: 250px;
+    transform: translateX(250px);
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.3s ease, visibility 0s linear 0.3s, opacity 0.3s;
+    z-index: 9998;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 130px;
+  }
+
+  .menu.open {
+    transform: translateX(0);
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    transition: transform 0.3s ease, visibility 0s linear, opacity 0.3s;
+  }
+
+  .menu a {
+    margin-bottom: 20px;
+    color: #000;
+    text-decoration: none;
+    font-size: 16px;
+  }
 .router-link {
   display: block;
   text-align: center;

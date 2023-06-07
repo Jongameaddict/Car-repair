@@ -256,12 +256,3 @@ export default {
   flex-basis: calc(50% - 10px);
 }
 </style>
-
-
-
-
-
-
-
-
-

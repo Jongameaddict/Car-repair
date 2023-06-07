@@ -5,6 +5,8 @@ import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import RequestRepair from '../views/RequestRepair.vue'
+import Contact from '../views/Contact.vue'
+import About from '../views/About.vue'
 import store from '../store/index'
 
 Vue.use(Router)
@@ -61,9 +63,25 @@ const router = new Router({
       meta: {
         requiresAuth: true
       }
+    },
+    {
+      path: "/contact", 
+      name: "contact",
+      component: Contact,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: '/about', 
+      name: 'about',
+      component: About,
+      meta: {
+        requiresAuth: false
+      }
     }
   ]
-})
+});
 
 router.beforeEach((to, from, next) => {
   // Determine if the route requires Authentication
