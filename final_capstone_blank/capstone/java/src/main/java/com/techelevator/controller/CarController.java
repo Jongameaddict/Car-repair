@@ -20,7 +20,7 @@ public class CarController {
 
 
 
-    @RequestMapping(path = "/requestrepair", method = RequestMethod.POST)
+    @RequestMapping(path = "/request-repair", method = RequestMethod.POST)
     public void addCar(@RequestBody Car car){
         carDao.createCar(car);
     }
@@ -30,4 +30,5 @@ public class CarController {
         return carDao.getAllCars();
     }
 
+    @RequestMapping (path)
 }
