@@ -64,7 +64,7 @@ import authService from "../services/AuthService";
 import router from "../router";
 import axios from "axios";
 export default {
-  name: "request-repair",
+  name: "RequestRepair",
   data() {
     return {
       car: {

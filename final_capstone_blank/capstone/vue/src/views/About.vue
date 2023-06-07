@@ -23,7 +23,6 @@
       <router-link v-if="!isLoginPage" to="/">Home</router-link>
       <router-link to="/request-service">Request Repair</router-link>
       <router-link to="/request-status">Service Status</router-link>
-      <router-link to="/about">About</router-link>
       <router-link to="/contact">Contact</router-link>
       <a v-if="isLoggedIn" href="/logout">Logout</a>
     </div>

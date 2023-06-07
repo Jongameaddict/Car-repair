@@ -21,7 +21,7 @@
     <div class="content">
       <h1>Welcome to Jeremy's Car Repair</h1>
       <p>We provide quality car repair services for all makes and models.</p>
-      <button class="cta-button">Book Appointment</button>
+      <button class="cta-button" @click="$router.push('/request-service')">Book Appointment</button>
     </div>
 
     <footer class="footer">
