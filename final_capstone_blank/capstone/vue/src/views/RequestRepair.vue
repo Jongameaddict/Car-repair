@@ -62,6 +62,7 @@
 <script>
 import authService from "../services/AuthService";
 import router from "../router";
+import axios from 'axios';
 export default {
   name: "request-repair",
   data() {
@@ -93,6 +94,10 @@ export default {
     toggleMenu() {
       this.isMenuOpen = !this.isMenuOpen;
     },
+    sendPostRequest(){
+      
+      axios.post('/requestrepair', this.car)
+    }
   },
 };
 </script>
