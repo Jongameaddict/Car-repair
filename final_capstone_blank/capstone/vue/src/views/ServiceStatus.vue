@@ -1,55 +1,39 @@
 <template>
-	<div id="servicestatus">
-		<div class="header">
-			<router-link to="/">
-				<img
-					class="logo"
-					src="../components/Jeremy's Car Repair.png"
-					alt="Logo"
-				/>
-			</router-link>
-			<button
-				class="hamburger"
-				:class="{ open: isMenuOpen }"
-				@click="toggleMenu"
-			>
-				<span class="line"></span>
-				<span class="line"></span>
-				<span class="line"></span>
-			</button>
-		</div>
-		<h2>Service Status</h2>
-        <price-component/>
-		<ul>
-			<li v-for="request in requests" :key="request.id">
-				<div>{{ request.title }}</div>
-				<div>Status: 'request.status'</div>
-				<button
-					v-if="request.status !== 'completed'"
-					@click="markCompleted(request.id)"
-				>
-					Mark complete
-				</button>
-				<button
-					v-if="request.status === 'completed'"
-					@click="repairCompleted(request.id)"
-				>
-					Your repair is completed
-				</button>
-			</li>
-		</ul>
-		<div class="menu" :class="{ open: isMenuOpen }">
-			<router-link to="/request-repair">Request Repair</router-link>
-			<router-link to="/about">About</router-link>
-			<router-link to="/contact">Contact</router-link>
-			<a v-if="isLoggedIn" href="/logout">Logout</a>
-		</div>
-		<footer class="footer">
-			<p class="footer-text">
-				2023 Jeremy's Car Repair. All rights reserved.
-			</p>
-		</footer>
-	</div>
+  <div id="servicestatus">
+    <div class="header">
+      <router-link to="/">
+        <img class="logo" src="../components/Jeremy's Car Repair.png" alt="Logo" />
+      </router-link>
+      <button class="hamburger" :class="{ open: isMenuOpen }" @click="toggleMenu">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </button>
+    </div>
+    <h2>Service Status</h2>
+    <price-component />
+    <ul class="repair-list">
+      <li v-for="request in requests" :key="request.id">
+        <div class="title">{{ request.title }}</div>
+        <div class="status">Status: {{ request.status }}</div>
+        <button v-if="request.status !== 'completed'" @click="markCompleted(request.id)">
+          Mark Complete
+        </button>
+        <button v-if="request.status === 'completed'" @click="repairCompleted(request.id)">
+          Your repair is completed
+        </button>
+      </li>
+    </ul>
+    <div class="menu" :class="{ open: isMenuOpen }">
+      <router-link to="/request-repair">Request Repair</router-link>
+      <router-link to="/about">About</router-link>
+      <router-link to="/contact">Contact</router-link>
+      <a v-if="isLoggedIn" href="/logout">Logout</a>
+    </div>
+    <footer class="footer">
+      <p class="footer-text">2023 Jeremy's Car Repair. All rights reserved.</p>
+    </footer>
+  </div>
 </template>
 
 <script>
@@ -249,6 +233,44 @@ export default {
 	text-decoration: none;
 	font-size: 16px;
 }
+
+ul.repair-list {
+  list-style: none;
+  padding: 0;
+  margin-left: 100px;
+}
+
+
+ul.repair-list li {
+  background-color: #F5F5F5;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  margin-left: 15px;
+}
+
+ul.repair-list li .title {
+  font-weight: bold;
+}
+
+ul.repair-list li .status {
+  margin-top: 5px;
+}
+
+ul.repair-list li button {
+  margin-top: 10px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+ul.repair-list li button:hover {
+  background-color: #45A049;
+}
+
 .router-link {
 	display: block;
 	text-align: center;
@@ -257,4 +279,3 @@ export default {
 	text-decoration: underline;
 }
 </style>
-script
