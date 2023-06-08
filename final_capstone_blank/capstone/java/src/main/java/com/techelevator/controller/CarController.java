@@ -37,12 +37,12 @@ public class CarController {
     }
 
     @RequestMapping(path = "update-repair/{id}", method = RequestMethod.PUT)
-    public void updateRepair(@RequestBody Car car, @PathVariable int carId){
-        carDao.updateRepairStatus(car, carId);
+    public void updateRepair(@RequestBody Car car, @PathVariable int id){
+        carDao.updateRepairStatus(car, id);
     }
 
-    @RequestMapping(path = "update-repair/{id}", method = RequestMethod.PUT)
-    public void updatePayment(@RequestBody Car car, @PathVariable int carId){
-        carDao.updatePaymentStatus(car, carId);
+    @RequestMapping(path = "update-payment/{id}", method = RequestMethod.PUT)
+    public void updatePayment(@RequestBody Car car, @PathVariable int id){
+        carDao.updatePaymentStatus(car, id);
     }
 }
