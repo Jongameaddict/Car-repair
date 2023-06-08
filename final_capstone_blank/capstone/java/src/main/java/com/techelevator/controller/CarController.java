@@ -31,13 +31,14 @@ public class CarController {
     }
 
     @RequestMapping(path = "/requests/{id}", method = RequestMethod.GET)
-    public Car getCar(@PathVariable int carId){
-        Car car = carDao.getCarById(carId);
+    public Car getCar(@PathVariable int id){
+        Car car = carDao.getCarById(id);
         return car;
     }
 
     @RequestMapping(path = "update-repair/{id}", method = RequestMethod.PUT)
     public void updateRepair(@RequestBody Car car, @PathVariable int id){
+        System.out.println(car);
         carDao.updateRepairStatus(car, id);
     }
 

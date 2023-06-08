@@ -1,7 +1,11 @@
 import axios from "axios";
 
 export default {
-    getAllRepairs(ServiceStatus){
-    return axios.post('/serviceStatus', ServiceStatus)
+    getAllRepairs(id){
+    return axios.get('/requests/' + id)
 },
+updateRepairStatus(repair, id) {
+    console.log('request?')
+return axios.put('/update-repair/' + id, repair)
+}
 }
