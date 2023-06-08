@@ -263,4 +263,3 @@ export default {
   text-decoration: underline;
 }
 </style>
-script
