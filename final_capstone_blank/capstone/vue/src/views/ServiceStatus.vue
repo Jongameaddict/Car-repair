@@ -19,25 +19,23 @@
 			</button>
 		</div>
 		<h2>Service Status</h2>
+		{{repair}}
         <price-component/>
-		<ul>
-			<li v-for="request in requests" :key="request.id">
-				<div>{{ request.title }}</div>
-				<div>Status: 'request.status'</div>
-				<button
-					v-if="request.status !== 'completed'"
-					@click="markCompleted(request.id)"
-				>
-					Mark complete
-				</button>
-				<button
-					v-if="request.status === 'completed'"
-					@click="repairCompleted(request.id)"
-				>
-					Your repair is completed
-				</button>
-			</li>
-		</ul>
+		
+
+		<div>
+			<input type="text" v-model="repair.repairStatus" placeholder="Repair Status">
+			<button @click="updateRepair">Update</button>
+			<!--
+				form input box, v-model to repair.repairStatus
+
+				button, when button is clicked, it sends a PUT to
+				update-repair/{id} on the back end. Include repair
+				in the body.
+			-->
+		</div>
+
+
 		<div class="menu" :class="{ open: isMenuOpen }">
 			<router-link to="/request-repair">Request Repair</router-link>
 			<router-link to="/about">About</router-link>
@@ -53,6 +51,7 @@
 </template>
 
 <script>
+
 import priceComponent from "../components/PriceComponent.vue";
 import repairservice from "../services/RepairService";
 
@@ -70,23 +69,45 @@ export default {
 			repairs: [],
 			invalidCredentials: false,
 			isMenuOpen: false,
+            isLoggedIn: true,
+			repair: {}
 		};
 	},
 	created() {
-		this.getAllRepairs();
+		// window.alert(this.$route.params.id);
+
+		// call your backend Java code, the endpoint
+		// that gives you back one car service object.
+
+		repairservice.getAllRepairs(this.$route.params.id)
+		.then((response) => { 
+			console.log(response.data)
+			this.repair = response.data
+
+		},
+		
+		)
+		
 	},
 	methods: {
 
 		toggleMenu() {
 			this.isMenuOpen = !this.isMenuOpen;
 		},
-		getAllRepairs() {
-			repairservice.getAllRepairs().then((response) => {
-				if (response.status === 200) {
-					this.repairs = response.data;
+		updateRepair(){
+			repairservice.updateRepairStatus(this.repair, this.$route.params.id).then(
+				() => {
+					window.alert('Status Changed!');
 				}
-			});
-		},
+			)
+		}
+		// updateRepair() {
+		// ('/update-repair/${repair.id}', {repair: this.repair})
+		// .then(() => {
+			
+		
+
+		
 	},
 };
 </script>

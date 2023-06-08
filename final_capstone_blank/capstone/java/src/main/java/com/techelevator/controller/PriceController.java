@@ -13,23 +13,27 @@ import java.util.List;
 
 @RestController
 @CrossOrigin
-@PreAuthorize("isAuthenticated()")
 public class PriceController {
-	@Autowired
-	private PriceDao dao;
-	
+
+	PriceDao priceDao;
+
+	public PriceController(PriceDao priceDao){
+		this.priceDao = priceDao;
+	}
+
+
 	//If our user selects services, we need to read from the database to create service objects, serialize the
 	// service objects into JSON, get the prices of each selected service using this, then add the prices together
 	
 	@GetMapping(path="/allPrices")
 	public List<Price> getAllPrices() {
-		List<Price> allPrices = dao.getPrices();
+		List<Price> allPrices = priceDao.getPrices();
 		return allPrices;
 	}
 	
 	@GetMapping(path="/price/{id}")
 	public Price returnPriceById(@PathVariable int id) {
-		Price price = dao.getPrice(id);
+		Price price = priceDao.getPrice(id);
 		return price;
 	}
 }
