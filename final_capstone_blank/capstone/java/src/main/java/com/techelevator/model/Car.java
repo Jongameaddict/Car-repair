@@ -14,6 +14,20 @@ public class Car {
     private String repairStatus;
     private String paymentStatus;
 
+    @Override
+    public String toString() {
+        return "Car{" +
+                "carId=" + carId +
+                ", make='" + make + '\'' +
+                ", model='" + model + '\'' +
+                ", year=" + year +
+                ", color='" + color + '\'' +
+                ", description='" + description + '\'' +
+                ", repairStatus='" + repairStatus + '\'' +
+                ", paymentStatus='" + paymentStatus + '\'' +
+                '}';
+    }
+
     public Car(int carId, String make, String model, int year, String color, String description, String repairStatus, String paymentStatus) {
         this.carId = carId;
         this.make = make;

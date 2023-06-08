@@ -48,7 +48,7 @@ public class JdbcCarDao implements CarDao{
     @Override
     public void updateRepairStatus(Car car, int carId) {
         String sql = "UPDATE cars SET repair_status = 'completed' WHERE car_id = ?";
-        jdbcTemplate.update(sql, car.getCarId());
+        jdbcTemplate.update(sql,carId);
     }
 
     @Override

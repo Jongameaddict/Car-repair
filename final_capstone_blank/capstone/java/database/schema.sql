@@ -19,27 +19,29 @@ CREATE TABLE cars (
 	year int NOT NULL,
 	color varchar(50) NOT NULL,
 	description varchar(200),
-	
+	repair_status varchar(200),
+	payment_status varchar(200),
+
 	PRIMARY KEY(car_id)
 );
 CREATE TABLE repair_types(
 	repair_id SERIAL,
 	repair_type varchar(200) NOT NULL,
 	price int NOT NULL,
-	
+
 	PRIMARY KEY(repair_id)
 );
 CREATE TABLE repair_service(
 	repair_id int NOT NULL,
 	service_id int NOT NULL,
-	
+
 	PRIMARY KEY(repair_id, service_id)
 );
 CREATE TABLE services(
 	service_id SERIAL,
 	car_id int NOT NULL,
 	user_id int NOT NULL,
-	
+
 	PRIMARY KEY(service_id)
 );
 CREATE TABLE person(
@@ -49,8 +51,8 @@ CREATE TABLE person(
 	username varchar(200) NOT NULL,
 	email varchar(200) NOT NULL,
 	phone int NOT NULL,
-	
-	
+
+
 	PRIMARY KEY(user_id)
 );
 ALTER TABLE repair_service
