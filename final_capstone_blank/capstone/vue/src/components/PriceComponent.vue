@@ -4,9 +4,8 @@
             <div>${{price.price}}</div>
             <div>{{price.repairId}}</div>
             <div>{{price.repairType}}</div>
-            <label for="chooseService"></label>
-            <input name="chooseService" type="button" placeholder="Choose a service" />
-            
+            <label for=""></label>
+            <input name="" type="button" placeholder="">
         </div>
 	</div>
 </template>
